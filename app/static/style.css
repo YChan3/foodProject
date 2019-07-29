@@ -1,0 +1,76 @@
+/*body{*/
+/*    background-color: yellow;*/
+/*}*/
+
+/*This is a gradient for the background. Delete it if you don't like it! */
+body {
+  height: 100vh;
+  margin-top: 30px;
+  background: #9796f0;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fbc7d4, #9796f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+/*Could be a good font?*/
+body {
+  text-align: center;
+  padding: 5px;
+  color: black;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/*h1 {*/
+/*  text-align: center;*/
+/*  padding: 5px;*/
+/*  color: black;*/
+/*  font-family: 'Josefin Sans', sans-serif;*/
+/*}*/
+
+img{
+
+    width: 30%;
+}
+
+h1{
+    color: blue;
+    font-family: 'Baloo', cursive;
+}
+
+.form{
+background-color: purple;
+padding: 10px;
+}
+
+#tweetScreen {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 40px;
+  padding-top: 5;
+
+}
+
+hr{
+  height: 30px;
+  color: red;
+  background-color: red;
+  border: none;
+}
+.STEAMpic{
+  width: 320px;
+  height: 65px;
+}
+
+.twitter-share-button{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+a {
+  color: black;
+
+}
+
+.nbar{
+  background-color: #0099cc;
+}

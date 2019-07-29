@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Performance Task</title>
+  <!-- Custom CSS -->
+  <link href="static/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Custom Fonts -->
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Enriqueta|Josefin+Sans|Nunito|Nunito+Sans|Roboto&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <h3>You are craving {{craving}}. </h3>
+    <ul>
+    {%for i in range(0, len)%}
+      <li>{{recipes[i]}}</li>
+      <a href="{{links[i]}}" target="_blank"><img src="{{images[i]}}"/></a>
+    {%endfor%}</ul>
+
+</body>
+
+
+</html>

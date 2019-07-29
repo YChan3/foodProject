@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Welcome!</title>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="static/style.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Enriqueta|Josefin+Sans|Nunito|Nunito+Sans|Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+          <div class="row">
+            <div id=nbar class="col s12 m12 l12">
+              Cuisines
+            </div>
+          </div>
+        <h1>RECIPE GENERATOR</h1>
+        <p>Send an ingredient or your craving</p>
+        <div id=form>
+        <form method="post" action="/results">
+            Craving:
+              <!--<select name = "ingredient">-->
+              <!--  <option value="chocolate">Chocolate</option>-->
+              <!--  <option value="cheese">Cheese</option>-->
+              <!--  <option value="tomato">Tomato</option>-->
+              <!--</select>-->
+              <br><br>
+              <input type="text" name="ingredient"><br>
+              <input type="submit" name="SEND">
+            </form>
+            </div>
+            <br/>
+            <br/>
+            <h2>
+              <i>Results</i>
+            </h2>
+            <hr>
+
+     <div class="container">
+        <div class="row">
+          {%for i in range(0, len)%}
+            <div class="col s4 m4 l4">
+              {{recipes[i]}}
+              <a href="{{links[i]}}" target="_blank"><img src="{{images[i]}}"/></a>
+            </div>
+          {%endfor%}
+        </div>
+      </div>
+
+    <footer class="page-footer grey darken-4 grey-text text-lighten-1">
+      <div class="container">
+        <div class="row">
+          <!-- These divs will need classes so that they work as described -->
+          <div class="col s4"><img class= "STEAMpic" src="static/STEAMS.jpg"></img></div>
+          <div class="col s2"><u><b>Company</b></u>
+          <ul>
+            <li>About</li>
+            <li>Jobs</li>
+            <li>For the Record</li>
+          </ul>
+
+          </div>
+          <div class="col s2"><u><b>Communities</b></u>
+          <ul>
+            <li>For Artists</li>
+            <li>Developers</li>
+            <li>Brands</li>
+            <li>Investors</li>
+            <li>Vendors</li>
+          </ul>
+          </div>
+          <div class="col s2"><u><b>Useful links</b></u>
+          <ul>
+            <li>Help</li>
+            <li>Web Player</li>
+          </ul>
+          </div>
+          <div class="col s2">
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-instagram"></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </body>
+</html>
