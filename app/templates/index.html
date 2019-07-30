@@ -5,8 +5,15 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="static/style.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Enriqueta|Josefin+Sans|Nunito|Nunito+Sans|Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
     </head>
     <body>
+      <div class="nav-bar">
+          <a href="/search" class="page-button"><b>RECIPES</b></a>
+          <a href="/restaurants" class="page-button"><b>RESTAURANTS</b></a>
+          <a href="/tweet" class="page-button"><b>FOOD ISSUES</b></a>
+          <a href="/about" class="page-button"><b>ABOUT</b></a>
+      </div>
         <div class="container">
           <div class="row">
             <div id=nbar class="col s12 m12 l12">
@@ -25,22 +32,23 @@
               <!--</select>-->
               <br><br>
               <input type="text" name="ingredient"><br>
+              <br>
               <input type="submit" name="SEND">
             </form>
             </div>
             <br/>
-            <br/>
             <h2>
-              <i>Results</i>
+              <i>RESULTS</i>
             </h2>
-            <hr>
+            <br>
 
      <div class="container">
         <div class="row">
           {%for i in range(0, len)%}
             <div class="col s4 m4 l4">
               {{recipes[i]}}
-              <a href="{{links[i]}}" target="_blank"><img src="{{images[i]}}"/></a>
+              <br>
+              <a href="{{links[i]}}" target="_blank"><img src="{{images[i]}}" class="image-fill"/></a>
             </div>
           {%endfor%}
         </div>

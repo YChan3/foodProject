@@ -3,14 +3,14 @@
 /*}*/
 
 /*This is a gradient for the background. Delete it if you don't like it! */
-body {
-  height: 100vh;
-  margin-top: 30px;
-  background: #9796f0;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #fbc7d4, #9796f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*body {*/
+/*  height: 100vh;*/
+/*  margin-top: 30px;*/
+  /*background: #9796f0;*/  /* fallback for old browsers
+  background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);  /* Chrome 10-25, Safari 5.1-6
+  background: linear-gradient(to right, #fbc7d4, #9796f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
 
-}
+/*}*/
 
 /*Could be a good font?*/
 body {
@@ -18,6 +18,7 @@ body {
   padding: 5px;
   color: black;
   font-family: 'Josefin Sans', sans-serif;
+  background-color: grey;
 }
 
 /*h1 {*/
@@ -33,8 +34,19 @@ img{
 }
 
 h1{
-    color: blue;
+    color: #333F87;
     font-family: 'Baloo', cursive;
+    text-shadow: 2px 2px #499AC9;
+    text-align: center;
+    font-size: 40px;
+}
+
+h2{
+    color: #333F87;
+    font-family: 'Baloo', cursive;
+    text-shadow: 2px 2px #499AC9;
+    text-align: center;
+    font-size: 40px;
 }
 
 .form{
@@ -73,4 +85,27 @@ a {
 
 .nbar{
   background-color: #0099cc;
+}
+
+/*So that all images in the results are the same size!*/
+.image-fill {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+form, select, input, option {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.nav-bar {
+  /*display: inline-block;*/
+  background-color:yellow;
+}
+
+.w3-bar {
+  font-family: 'Josefin Sans', sans-serif;
+  margin: auto;
+  text-align: center;
+  display: inline-block;
 }

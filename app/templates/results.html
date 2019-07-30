@@ -9,6 +9,7 @@
   <!-- Custom CSS -->
   <link href="static/style.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
 
   <!-- Custom Fonts -->
   <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -18,11 +19,18 @@
 </head>
 
 <body>
+  <div class="nav-bar">
+
+          <a href="/search" class="page-button"><b>RECIPES</b></a>
+          <a href="/restaurants" class="page-button"><b>RESTAURANTS</b></a>
+          <a href="/tweet" class="page-button"><b>FOOD ISSUES</b></a>
+          <a href="/about" class="page-button"><b>ABOUT</b></a>
+  </div>
   <h3>You are craving {{craving}}. </h3>
     <ul>
     {%for i in range(0, len)%}
       <li>{{recipes[i]}}</li>
-      <a href="{{links[i]}}" target="_blank"><img src="{{images[i]}}"/></a>
+      <a href="{{links[i]}}" target="_blank"><img src="{{images[i]}}" class="image-fill"/></a>
     {%endfor%}</ul>
 
 </body>
