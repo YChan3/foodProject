@@ -18,7 +18,7 @@ body {
   padding: 5px;
   color: black;
   font-family: 'Josefin Sans', sans-serif;
-  background-color: grey;
+  /*background-color: grey;*/
 }
 
 /*h1 {*/
@@ -38,6 +38,14 @@ h1{
     font-family: 'Baloo', cursive;
     text-shadow: 2px 2px #499AC9;
     text-align: center;
+    font-size: 60px;
+}
+
+h4{
+    color: #ffffb3;
+    font-family: 'Baloo', cursive;
+    text-shadow: 2px 2px #ffa64d;
+    text-align: center;
     font-size: 40px;
 }
 
@@ -52,6 +60,8 @@ h2{
 .form{
 background-color: purple;
 padding: 10px;
+margin: 0 auto;
+
 }
 
 #tweetScreen {
@@ -63,6 +73,39 @@ padding: 10px;
 
 }
 
+.bg1{
+    /*min-height: 100%;*/
+    /*min-width: 1024px;*/
+    /*width: 100%;*/
+    /*height: auto;*/
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*left: 0;*/
+  /*display:block;*/
+  /*margin:auto;*/
+  justify-content: center;
+  background-repeat: no-repeat;
+}
+
+/*.recipesClass{*/
+/*  margin-left:10px;*/
+/*  margin-right:10px;*/
+/*  margin-top:20px;*/
+/*  margin-bottom:10px;*/
+/*}*/
+
+.bg{
+    /*min-height: 100%;*/
+    /*min-width: 1024px;*/
+    /*width: 100%;*/
+    /*height: auto;*/
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*left: 0;*/
+
+background-repeat: no-repeat;
+}
+
 hr{
   height: 30px;
   color: red;
@@ -70,8 +113,16 @@ hr{
   border: none;
 }
 .STEAMpic{
-  width: 320px;
-  height: 65px;
+  width: 200px;
+}
+
+/*.nav-bar{*/
+/*  font-family: 'Niconne', cursive;*/
+/*}*/
+
+
+.nav-bar{
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .twitter-share-button{
@@ -89,8 +140,8 @@ a {
 
 /*So that all images in the results are the same size!*/
 .image-fill {
-  width: 50px;
-  height: 50px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
 }
 
@@ -98,8 +149,13 @@ form, select, input, option {
     font-family: 'Josefin Sans', sans-serif;
 }
 
+button {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 .nav-bar {
   /*display: inline-block;*/
+
   background-color:yellow;
 }
 
@@ -109,3 +165,42 @@ form, select, input, option {
   text-align: center;
   display: inline-block;
 }
+
+/*.container {*/
+/*  width: 800px;*/
+/*  height: 80px;*/
+/*}*/
+
+footer.page-footer {
+  height: 200px;
+  padding-top: 60px;
+}
+.fa {
+  padding: 15px;
+  font-size: 18px;
+  width: 12px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+.fa:hover {
+  opacity: 0.7;
+}
+.fa-facebook {
+  /*background: #3B5998;*/
+  color: white;
+}
+.fa-twitter {
+  /*background: #55ACEE;*/
+  color: white;
+}
+.fa-instagram {
+  /*background: #55ACEE;*/
+  color: white;
+}
+
+
+.container {
+  width: 100%;
+}
+

@@ -7,17 +7,34 @@
         <link href="https://fonts.googleapis.com/css?family=Enriqueta|Josefin+Sans|Nunito|Nunito+Sans|Roboto&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
     </head>
-    <body>
-      <div class="nav-bar">
-          <a href="/search" class="page-button"><b>RECIPES</b></a>
-          <a href="/restaurants" class="page-button"><b>RESTAURANTS</b></a>
-          <a href="/tweet" class="page-button"><b>FOOD ISSUES</b></a>
-          <a href="/about" class="page-button"><b>ABOUT</b></a>
+    <body class="bg" background="static/Recipe.jpg">
+
+      <div class="container">
+      <div class="container">
+       <div class="nav-bar">
+
+          <div class="row">
+          <div class="col s1"></div>
+    <div class="col s2"><a href="/search" class="page-button"><b>RECIPES</b></a>
+    </div>
+     <div class="col s2"><a href="/restaurants" class="page-button"><b>RESTAURANTS</b></a>
+     </div>
+      <div class="col s2"><a href="/tweet" class="page-button"><b>FOOD ISSUES</b></a>
       </div>
+    <div class="col s2"><a href="/about" target="blank"class="page-button"><b>ABOUT</b></a>
+
+    </div>
+    <div class="col s2"><a href="/login" class="page-button"><b>LOGIN</b></a>
+      </div>
+      <div class="col s1"></div>
+
+       </div>
+       </div>
+       </div>
         <div class="container">
           <div class="row">
             <div id=nbar class="col s12 m12 l12">
-              Cuisines
+              <!--Cuisines-->
             </div>
           </div>
         <h1>RECIPE GENERATOR</h1>
@@ -36,59 +53,135 @@
               <input type="submit" name="SEND">
             </form>
             </div>
-            <br/>
-            <h2>
-              <i>RESULTS</i>
-            </h2>
+            <!--<br/>-->
+            <!--<h2>-->
+            <!--  <i>RESULTS</i>-->
+            <!--</h2>-->
             <br>
 
-     <div class="container">
+     <!--<div class="container">-->
+     <!--   <div class="row">-->
+     <!--   {% if logged_in %}-->
+     <!--     {%for i in range(0, len)%}-->
+     <!--       <div class="col s4 m4 l4 white recipesClass">-->
+     <!--         {{recipes[i]}}-->
+     <!--         <br>-->
+     <!--         <a href="{{links[i]}}" target="_blank"><img src="{{images[i]}}" class="image-fill"/></a>-->
+     <!--         <br>-->
+     <!--         <br>-->
+     <!--         <br>-->
+     <!--       </div>-->
+     <!--     {%endfor%}-->
+     <!--   {% else %}-->
+     <!--     {%for i in range(0, len)%}-->
+     <!--       <div class="col s4 m4 l4 white recipesClass">-->
+     <!--         {{recipes[i]}}-->
+     <!--         <br>-->
+     <!--         <a href="{{links[i]}}" target="_blank"><img src="{{images[i]}}" class="image-fill"/></a>-->
+     <!--         <br>-->
+     <!--         <br>-->
+     <!--         <br>-->
+     <!--       </div>-->
+     <!--     {%endfor%}-->
+     <!--   {% endif %}-->
+     <!--   </div>-->
+     <!-- </div>-->
+
+
+    <!--NEW ONE-->
+    <div class="container">
         <div class="row">
+        {% if logged_in %}
           {%for i in range(0, len)%}
-            <div class="col s4 m4 l4">
+            <div class="col s4 m4 l4 white recipesClass">
+              <form action="/action_page.php">
+                <input type="checkbox" name="vehicle1" value="Bike">{{recipes[i]}}<br>
+                <a href="{{links[i]}}" target="_blank"><img src="{{images[i]}}" class="image-fill"/></a>
+
+                <input type="submit" value="Submit">
+              </form>
+
+              <br>
+
+              <br>
+              <br>
+              <br>
+            </div>
+          {%endfor%}
+        {% else %}
+          {%for i in range(0, len)%}
+            <div class="col s4 m4 l4 white recipesClass">
               {{recipes[i]}}
               <br>
               <a href="{{links[i]}}" target="_blank"><img src="{{images[i]}}" class="image-fill"/></a>
+              <br>
+              <br>
+              <br>
             </div>
           {%endfor%}
+        {% endif %}
         </div>
       </div>
 
+
+
+    </div>
+
+
     <footer class="page-footer grey darken-4 grey-text text-lighten-1">
-      <div class="container">
+
         <div class="row">
           <!-- These divs will need classes so that they work as described -->
-          <div class="col s4"><img class= "STEAMpic" src="static/STEAMS.jpg"></img></div>
-          <div class="col s2"><u><b>Company</b></u>
-          <ul>
-            <li>About</li>
-            <li>Jobs</li>
-            <li>For the Record</li>
-          </ul>
-
-          </div>
-          <div class="col s2"><u><b>Communities</b></u>
-          <ul>
-            <li>For Artists</li>
-            <li>Developers</li>
-            <li>Brands</li>
-            <li>Investors</li>
-            <li>Vendors</li>
-          </ul>
-          </div>
-          <div class="col s2"><u><b>Useful links</b></u>
-          <ul>
-            <li>Help</li>
-            <li>Web Player</li>
-          </ul>
-          </div>
-          <div class="col s2">
+          <div class="col s3"><img class= "STEAMpic" src="static/STEAMS.png"></img></div>
+          <div class="col s4"><u><b>YEA Food!</b></u>
+          <p>Your go to source for all things food!</p>
+        </div>
+        <div class="col s5">
           <a href="#" class="fa fa-facebook"></a>
           <a href="#" class="fa fa-twitter"></a>
           <a href="#" class="fa fa-instagram"></a>
           </div>
         </div>
-      </div>
+
     </footer>
+
+    <!--Footer with columns-->
+    <!--<footer class="page-footer grey darken-4 grey-text text-lighten-1">-->
+
+    <!--    <div class="row">-->
+          <!-- These divs will need classes so that they work as described -->
+    <!--      <div class="col s4"><img class= "STEAMpic" src="static/STEAMS.jpg"></img></div>-->
+    <!--      <div class="col s2"><u><b>Company</b></u>-->
+    <!--      <ul>-->
+    <!--        <li>About</li>-->
+    <!--        <li>Jobs</li>-->
+    <!--        <li>For the Record</li>-->
+    <!--      </ul>-->
+
+    <!--      </div>-->
+    <!--      <div class="col s2"><u><b>Communities</b></u>-->
+    <!--      <ul>-->
+    <!--        <li>For Artists</li>-->
+    <!--        <li>Developers</li>-->
+    <!--        <li>Brands</li>-->
+    <!--        <li>Investors</li>-->
+    <!--        <li>Vendors</li>-->
+    <!--      </ul>-->
+    <!--      </div>-->
+    <!--      <div class="col s2"><u><b>Useful links</b></u>-->
+    <!--      <ul>-->
+    <!--        <li>Help</li>-->
+    <!--        <li>Web Player</li>-->
+    <!--      </ul>-->
+    <!--      </div>-->
+    <!--      <div class="col s2">-->
+    <!--      <a href="#" class="fa fa-facebook"></a>-->
+    <!--      <a href="#" class="fa fa-twitter"></a>-->
+    <!--      <a href="#" class="fa fa-instagram"></a>-->
+    <!--      </div>-->
+    <!--    </div>-->
+
+    <!--</footer>-->
+
     </body>
 </html>

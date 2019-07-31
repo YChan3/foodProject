@@ -1,32 +1,109 @@
 from app import app
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, session, Flask
 from app.models import model, formopener
-
+from flask_pymongo import PyMongo
+import os
+import random
 import requests
 
-# restaurantApi = "97f9f42fa19bc08f9cfdefb874d94e65"
+app.secret_key = os.urandom(32)
 
-@app.route('/')
+# name of database
+app.config['MONGO_DBNAME'] = 'database'
+
+# URI of database
+app.config['MONGO_URI'] = 'mongodb+srv://admin:XSsYHTHo6aoTlPas@cluster0-nmrkr.mongodb.net/database?retryWrites=true&w=majority'
+# app.config['MONGO_URI'] = 'mongodb+srv://reader:yGfrgHrFDhP0de8M@cluster0-nmrkr.mongodb.net/musicDatabase?retryWrites=true&w=majority'
+
+mongo = PyMongo(app)
+
 @app.route('/index')
 def index():
-    # parameters = {"q":"chinese",
-    #               "count":9,
-    #               "radius":8000,
-    #               "sort":"rating",
-    #               "order":"desc",
-    #               "entity_id":280,
-    #               "entity_type":"city"
-    # }
-
-    # headers = {"user-key":"97f9f42fa19bc08f9cfdefb874d94e65"}
-
-    # response = requests.get("https://developers.zomato.com/api/v2.1/search", headers = headers, params = parameters)
-    # data = response.json()
-    # return data
     return "hi"
+
+@app.route('/')
+def home():
+    '''
+    Returns either login page (ie. landing page) or profile based on whether used logged in
+    '''
+    print(session)
+    if "username" in session:
+        return redirect("/search")
+    return redirect('/login')
+
+@app.route('/register')
+def register():
+    '''
+    Returns Registration page if user is not logged in.
+    '''
+    if "username" in session:
+        return redirect("/search")
+    return render_template('register.html')
+
+@app.route('/login', methods=['POST',"GET"])
+def login():
+    '''
+    Returns Login page if user is not logged in.
+    '''
+    if "username" in session:
+        return redirect("/search")
+    return render_template('login.html')
+
+@app.route('/authenticate', methods=['POST'])
+def authenticate():
+    accounts = mongo.db.accounts
+    '''
+    References db and handles authentication (logging in) and registration.
+    '''
+    if "username" in session:
+        return redirect("/")
+    # instantiates DB_Manager with path to DB_FILE
+    # data = arms.DB_Manager(DB_FILE)
+
+    # LOGGING IN
+    if request.form["submit"] == "Login":
+        username, password = request.form['username'], request.form['password']
+        if username != "" and password != "" and list(accounts.find({"username":username,"password":password})):
+            session["username"] = username
+            session["password"] = password
+            # data.save()
+            return redirect("/")
+        # user was found in DB but password did not match
+        # elif data.findUser(username):
+        #     flash('Incorrect password!')
+        # # user not found in DB at all
+        # else:
+        #     flash('Incorrect username!')
+        # data.save()
+        return render_template("login_invalid.html")
+
+    # REGISTRATION
+    else:
+        username, password, re_password = request.form['username'], request.form['password'], request.form["re_password"]
+        print("set password")
+        print(list(accounts.find({"username":username})))
+        if len(username.strip()) != 0 and not list(accounts.find({"username":username})):
+            if len(password.strip()) != 0 and password == re_password:
+                # add account to DB
+                accounts.insert({"username":username, "password":password,})
+                saved = mongo.db.saved
+                saved.insert({"restaurants":[], "recipes":[]})
+                return redirect("/login")
+        return render_template('register_invalid.html')
+
+@app.route('/logout')
+def logout():
+    '''
+    Logs user out if they are logged in
+    Basic page is login page, not logged in users can't use features.
+    '''
+    session.pop("username", None)
+    session.pop("password", None)
+    return redirect("/login")
 
 @app.route('/search')
 def search():
+    print(session)
     return render_template("index.html",  len=0)
 
 # This is a menu screen...it's under the 'home.html' file
@@ -55,7 +132,7 @@ def restaurants():
         term = request.form["term"].strip()
         distance = 0
         if request.form["distance"].strip().isdecimal():
-            distance = int(request.form["distance"].strip())
+            distance = int(request.form["distance"].strip()) * 1000
         user_address = request.form["address"].strip()
 
         lat = None
@@ -110,14 +187,20 @@ def restaurants():
         data = response.json()
         # print(data)
         for dic in data["restaurants"]:
-            names.append(dic["restaurant"]["name"].strip())
+            if len(dic["restaurant"]["name"].strip()) > 25:
+                names.append(dic["restaurant"]["name"].strip().title()[:24]+"...")
+            else:
+                names.append(dic["restaurant"]["name"].strip().title())
             images.append(dic["restaurant"]["featured_image"])
             links.append(dic["restaurant"]["url"])
             location.append(dic["restaurant"]["location"]["address"])
         if not names:
             return "Template for ingredient not found"
         # return data
-        return render_template("restaurants.html", term = term, len = len(names), names = names, images = images, links = links)
+        logged_in = False
+        if "username" in session:
+            logged_in = True
+        return render_template("restaurants.html", term = term, len = len(names), names = names, images = images, links = links, logged_in = logged_in)
 
 @app.route('/results', methods = ['GET','POST'])
 def result():
@@ -138,9 +221,22 @@ def result():
         response = requests.get("https://api.edamam.com/search", params = parameters)
         data = response.json()
         for dic in data["hits"]:
-            recipes.append(dic["recipe"]["label"].strip())
+            if len(dic["recipe"]["label"].strip()) > 25:
+                recipes.append(dic["recipe"]["label"].strip().title()[:24]+"...")
+            else:
+                recipes.append(dic["recipe"]["label"].strip().title())
             images.append(dic["recipe"]["image"])
             links.append(dic["recipe"]["url"])
         if not recipes:
             return "Template for ingredient not found"
-        return render_template("index.html", craving = ingredient, len = len(recipes), recipes = recipes, images = images, links = links)
+        logged_in = False
+        if "username" in session:
+            logged_in = True
+        return render_template("index.html", craving = ingredient, len = len(recipes), recipes = recipes, images = images, links = links, logged_in = logged_in)
+
+@app.route('/saved', methods = ['GET','POST'])
+def saved():
+    saved = mongo.db.saved
+    session["username"]
+    # saved.update_one({"username":username},{"$set":{"recipes"}})
+    return "hi"
