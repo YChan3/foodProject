@@ -84,15 +84,19 @@ margin: 0 auto;
   /*display:block;*/
   /*margin:auto;*/
   justify-content: center;
+  background-size: cover;
   background-repeat: no-repeat;
 }
+.bg3{
+  background: #83a4d4;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-/*.recipesClass{*/
-/*  margin-left:10px;*/
-/*  margin-right:10px;*/
-/*  margin-top:20px;*/
-/*  margin-bottom:10px;*/
-/*}*/
+}
+
+.recipesClass{
+  background: white;
+}
 
 .bg{
     /*min-height: 100%;*/
@@ -101,9 +105,9 @@ margin: 0 auto;
     /*height: auto;*/
     /*position: fixed;*/
     /*top: 0;*/
-    /*left: 0;*/
-
-background-repeat: no-repeat;
+   /*left: 0;*/
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 hr{
@@ -140,8 +144,8 @@ a {
 
 /*So that all images in the results are the same size!*/
 .image-fill {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -154,17 +158,36 @@ button {
 }
 
 .nav-bar {
-  /*display: inline-block;*/
-
-  background-color:yellow;
+  background-color: yellow;
 }
 
-.w3-bar {
-  font-family: 'Josefin Sans', sans-serif;
-  margin: auto;
+
+.nav-bar a {
+  float: left;
+  color: black;
   text-align: center;
-  display: inline-block;
+  padding: 12px 10px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
 }
+
+ /*Change the color of links on hover*/
+.nav-bar a:hover {
+  text-decoration: underline;
+}
+
+/* Add a color to the active/current link */
+/*.nav-bar a.active {*/
+/*  background-color: green;*/
+/*  color: white;*/
+/*}*/
+
+/*.w3-bar {*/
+/*  font-family: 'Josefin Sans', sans-serif;*/
+/*  margin: auto;*/
+/*  text-align: center;*/
+/*  display: inline-block;*/
+/*}*/
 
 /*.container {*/
 /*  width: 800px;*/
@@ -175,32 +198,67 @@ footer.page-footer {
   height: 200px;
   padding-top: 60px;
 }
+ /*Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+
 .fa {
   padding: 15px;
-  font-size: 18px;
-  width: 12px;
+  font-size: 30px;
+  width: 15%;
   text-align: center;
   text-decoration: none;
   border-radius: 50%;
 }
+
 .fa:hover {
   opacity: 0.7;
 }
+
+.fa-facebook:hover {
+  color: #3B5998;
+}
+
+.fa-twitter:hover {
+  color: #55ACEE;
+}
+
+.fa-linkedin:hover {
+  color: #007bb5;
+}
+
 .fa-facebook {
   /*background: #3B5998;*/
-  color: white;
+  color: orange;
+}
+
+.fa-linkedin {
+  /*background: #3B5998;*/
+  color: orange;
 }
 .fa-twitter {
   /*background: #55ACEE;*/
-  color: white;
+  color: orange;
 }
 .fa-instagram {
   /*background: #55ACEE;*/
-  color: white;
+  color: orange;
 }
+
+
 
 
 .container {
   width: 100%;
 }
 
+label {
+    color: white;
+}

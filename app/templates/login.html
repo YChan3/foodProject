@@ -22,7 +22,7 @@
     <!--<link href="https://fonts.googleapis.com/css?family=Enriqueta|Josefin+Sans|Nunito|Nunito+Sans|Roboto&display=swap" rel="stylesheet">-->
 </head>
 
-<body>
+<body class="bg3">
     <div class="nav-bar">
         <div class="row">
             <div class="col s1"></div>
@@ -44,10 +44,12 @@
     <br>
     <h1>LOGIN</h1>
     <form method="post" action="/authenticate">
-        <label for="username"><b>Username</b></label>
+
         <input type="text" placeholder="Enter Username" name="username" required>
-        <label for="password"><b>Password</b></label>
+        <label for="username"><b>Username</b></label>
+
         <input type="password" placeholder="Enter Password" name="password" required>
+        <label for="password"><b>Password</b></label>
         <br>
         <br>
         <input type="submit" name="submit" value="Login" />
@@ -61,20 +63,19 @@
 </body>
 <footer class="page-footer grey darken-4 grey-text text-lighten-1">
 
-    <div class="row">
-        <!-- These divs will need classes so that they work as described -->
-        <div class="col s3"><img class="STEAMpic" src="static/STEAMS.png"></img>
+        <div class="row">
+          <!-- These divs will need classes so that they work as described -->
+          <div class="col s4"><img class= "STEAMpic" src="static/STEAMS.png"></img></div>
+          <div class="col s4"><u><b>YEA FOOD!</b></u>
+          <p>Your go to source for all things food!</p>
         </div>
-        <div class="col s4"><u><b>YEA Food!</b></u>
-            <p>Your go to source for all things food!</p>
+        <div class="col s4">
+          <a href="https://www.facebook.com/upperlinecode/" target="_blank" class="fa fa-facebook"></a>
+          <a href="https://twitter.com/upperlinecode?lang=en" target="_blank" class="fa fa-twitter"></a>
+          <a href="https://www.linkedin.com/company/upperline-code" target="_blank" class="fa fa-linkedin"></a>
+          </div>
         </div>
-        <div class="col s5">
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-instagram"></a>
-        </div>
-    </div>
 
-</footer>
+    </footer>
 
 </html>

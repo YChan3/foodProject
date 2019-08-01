@@ -87,7 +87,7 @@ def authenticate():
                 # add account to DB
                 accounts.insert({"username":username, "password":password,})
                 saved = mongo.db.saved
-                saved.insert({"restaurants":[], "recipes":[]})
+                saved.insert({"username":username, "restaurants":[], "recipes":[]})
                 return redirect("/login")
         return render_template('register_invalid.html')
 
@@ -234,9 +234,60 @@ def result():
             logged_in = True
         return render_template("index.html", craving = ingredient, len = len(recipes), recipes = recipes, images = images, links = links, logged_in = logged_in)
 
+@app.route('/save', methods = ['POST'])
+def save():
+    saved = mongo.db.saved
+    username = session["username"]
+
+    saved_type = "restaurants"
+    if request.form["submit"] == "Save Recipe(s)":
+        saved_type = "recipes"
+
+    saved_items = list(saved.find({"username":username}))[0][saved_type]
+    print(saved_items)
+
+    print(request.form)
+    for i in range(0,9):
+        if "choice"+str(i) in request.form:
+            current_item = request.form["choice"+str(i)].split("`")
+            current_dic = {saved_type:current_item[0],"link":current_item[1],"image":current_item[2]}
+            if current_dic not in saved_items:
+                saved_items.append(current_dic)
+
+    saved.update_one({"username":username},{"$set":{saved_type:saved_items}})
+    return redirect("/saved")
+
+@app.route('/delete', methods = ['POST'])
+def delete():
+    saved = mongo.db.saved
+    username = session["username"]
+
+    saved_type = "restaurants"
+    if request.form["submit"] == "Delete Recipe(s)":
+        saved_type = "recipes"
+
+    saved_items = list(saved.find({"username":username}))[0][saved_type]
+    print(saved_items)
+
+    print(request.form)
+    for i in range(0,len(saved_items)):
+        if "choice"+str(i) in request.form:
+            current_item = request.form["choice"+str(i)].split("`")
+            current_dic = {saved_type:current_item[0],"link":current_item[1],"image":current_item[2]}
+            saved_items.remove(current_dic)
+
+    saved.update_one({"username":username},{"$set":{saved_type:saved_items}})
+    return redirect("/saved")
+
 @app.route('/saved', methods = ['GET','POST'])
 def saved():
+    if "username" not in session:
+        return redirect("/")
     saved = mongo.db.saved
-    session["username"]
-    # saved.update_one({"username":username},{"$set":{"recipes"}})
-    return "hi"
+    username = session["username"]
+    saved_recipes = list(saved.find({"username":username}))[0]["recipes"]
+    saved_restaurants = list(saved.find({"username":username}))[0]["restaurants"]
+    print(saved_restaurants)
+    print("\n\n\n\n\n")
+    print(saved_recipes)
+    return render_template("saved.html", restaurants =saved_restaurants, recipes = saved_recipes, len_restaurants = len(saved_restaurants), len_recipes = len(saved_recipes))
