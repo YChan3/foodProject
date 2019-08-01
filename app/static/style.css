@@ -21,6 +21,15 @@ body {
   /*background-color: grey;*/
 }
 
+h3 {
+  text-align: center;
+  color: black;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  /*background-color: grey;*/
+}
+
+
 /*h1 {*/
 /*  text-align: center;*/
 /*  padding: 5px;*/
@@ -39,6 +48,28 @@ h1{
     text-shadow: 2px 2px #499AC9;
     text-align: center;
     font-size: 60px;
+}
+
+h5{
+    color: #2d663e;
+    font-family: 'Baloo', cursive;
+    text-shadow: 2px 2px #4ac26d;
+    text-align: center;
+    font-size: 60px;
+}
+
+h6{
+    color: #2d663e;
+    font-family: 'Baloo', cursive;
+    text-align: center;
+    font-size: 20px;
+}
+
+h7{
+    color: #333F87;
+    font-family: 'Baloo', cursive;
+    text-align: center;
+    font-size: 20px;
 }
 
 h4{
@@ -64,6 +95,10 @@ margin: 0 auto;
 
 }
 
+.login_form{
+  padding-left: 200px;
+  padding-right: 200px;
+}
 #tweetScreen {
   width: 60%;
   margin-left: auto;
@@ -72,6 +107,10 @@ margin: 0 auto;
   padding-top: 5;
 
 }
+
+/*.col{*/
+/*  color:yellow;*/
+/*}*/
 
 .bg1{
     /*min-height: 100%;*/
@@ -94,6 +133,14 @@ margin: 0 auto;
 
 }
 
+.bg4{
+  background: #a8ff78;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
 .recipesClass{
   background: white;
 }
@@ -109,6 +156,8 @@ margin: 0 auto;
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+
 
 hr{
   height: 30px;
@@ -127,6 +176,8 @@ hr{
 
 .nav-bar{
   font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+  border-radius: 25px;
 }
 
 .twitter-share-button{
@@ -197,6 +248,7 @@ button {
 footer.page-footer {
   height: 200px;
   padding-top: 60px;
+  border-radius: 25px;
 }
  /*Style all font awesome icons */
 .fa {
@@ -221,7 +273,9 @@ footer.page-footer {
 .fa:hover {
   opacity: 0.7;
 }
-
+.bot_links:hover{
+color: #55ACEE;
+}
 .fa-facebook:hover {
   color: #3B5998;
 }
@@ -260,5 +314,61 @@ footer.page-footer {
 }
 
 label {
-    color: white;
+    color: black;
 }
+
+.checkbox-white[type="checkbox"] + label:before{
+  border: 2px solid white;
+  background: transparent;
+}
+
+.centered{
+  text-align: center;
+}
+
+
+/* The dropdown container */
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}

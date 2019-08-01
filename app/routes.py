@@ -188,14 +188,14 @@ def restaurants():
         # print(data)
         for dic in data["restaurants"]:
             if len(dic["restaurant"]["name"].strip()) > 25:
-                names.append(dic["restaurant"]["name"].strip().title()[:24]+"...")
+                names.append(dic["restaurant"]["name"].strip().upper()[:24]+"...")
             else:
-                names.append(dic["restaurant"]["name"].strip().title())
+                names.append(dic["restaurant"]["name"].strip().upper())
             images.append(dic["restaurant"]["featured_image"])
             links.append(dic["restaurant"]["url"])
             location.append(dic["restaurant"]["location"]["address"])
         if not names:
-            return "Template for ingredient not found"
+            return render_template("restaurant_not_found.html")
         # return data
         logged_in = False
         if "username" in session:
@@ -222,13 +222,13 @@ def result():
         data = response.json()
         for dic in data["hits"]:
             if len(dic["recipe"]["label"].strip()) > 25:
-                recipes.append(dic["recipe"]["label"].strip().title()[:24]+"...")
+                recipes.append(dic["recipe"]["label"].strip().upper()[:24]+"...")
             else:
-                recipes.append(dic["recipe"]["label"].strip().title())
+                recipes.append(dic["recipe"]["label"].strip().upper())
             images.append(dic["recipe"]["image"])
             links.append(dic["recipe"]["url"])
         if not recipes:
-            return "Template for ingredient not found"
+            return render_template("recipe_not_found.html")
         logged_in = False
         if "username" in session:
             logged_in = True
