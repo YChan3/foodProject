@@ -50,6 +50,14 @@ h1{
     font-size: 60px;
 }
 
+.login {
+    color: #d90424;
+    font-family: 'Baloo', cursive;
+    text-shadow: 2px 2px #eb6a81;
+    text-align: center;
+    font-size: 60px;
+}
+
 h5{
     color: #2d663e;
     font-family: 'Baloo', cursive;
@@ -60,6 +68,13 @@ h5{
 
 h6{
     color: #2d663e;
+    font-family: 'Baloo', cursive;
+    text-align: center;
+    font-size: 20px;
+}
+
+.invalid{
+    color: #d90424;
     font-family: 'Baloo', cursive;
     text-align: center;
     font-size: 20px;
@@ -89,10 +104,14 @@ h2{
 }
 
 .form{
-background-color: purple;
+background-color: #333F87;;
 padding: 10px;
 margin: 0 auto;
 
+}
+
+.res_font{
+  color:#ffc266;
 }
 
 .login_form{
@@ -106,6 +125,10 @@ margin: 0 auto;
   padding-bottom: 40px;
   padding-top: 5;
 
+}
+
+.placeholder-dark::placeholder{
+  color: #686868;
 }
 
 /*.col{*/
@@ -130,6 +153,13 @@ margin: 0 auto;
   background: #83a4d4;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.bg8{
+background: #FF5F6D;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFC371, #FF5F6D);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFC371, #FF5F6D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
@@ -273,8 +303,17 @@ footer.page-footer {
 .fa:hover {
   opacity: 0.7;
 }
-.bot_links:hover{
-color: #55ACEE;
+.text-white:hover{
+color: yellow;
+}
+.text-white{
+color: white;
+}
+.recipeFont{
+  font-size:30;
+}
+.cravingFont{
+  font-size:20;
 }
 .fa-facebook:hover {
   color: #3B5998;

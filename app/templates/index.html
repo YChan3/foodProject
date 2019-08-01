@@ -39,13 +39,13 @@
             <br>
             <br>
             <br>
-            <p>Send an ingredient or your craving</p>
+            <p class="recipeFont">Send an ingredient or your craving</p>
             <div class="container">
                 <div class="row">
                     <div class="col s6 offset-s3">
                         <div id=form>
                             <form method="post" action="/results">
-                                Craving:
+                                <p class="cravingFont">Craving:</p>
                                 <!--<select name = "ingredient">-->
                                 <!--  <option value="chocolate">Chocolate</option>-->
                                 <!--  <option value="cheese">Cheese</option>-->
@@ -125,6 +125,7 @@
                         </form>
                         {% else %} {%for i in range(0, len)%}
                         <div class="col s4 m4 l4 white recipesClass">
+                            <br><br>
                             {{recipes[i]}}
                             <br>
                             <a href="{{links[i]}}" target="_blank"><img src="{{images[i]}}" class="image-fill" onerror="this.onerror=null;this.src='static/noimage.png';" /></a>
@@ -144,10 +145,10 @@
                     <!-- These divs will need classes so that they work as described -->
                     <div class="col s4"><img class="STEAMpic" src="static/STEAMS.png"></img>
                     </div>
-                    <div class="col s4 bot_links">
-                        <a href="/logout" class="white-text">Logout &nbsp; &nbsp; &nbsp;</a>
-                        <a href="/register" class="white-text">Register &nbsp; &nbsp; &nbsp;</a>
-                        <a href="/saved" class="white-text">Saved Items</a>
+                    <div class="col s4">
+                        <a href="/logout" class="text-white">Logout &nbsp; &nbsp; &nbsp;</a>
+                        <a href="/register" class="text-white">Register &nbsp; &nbsp; &nbsp;</a>
+                        <a href="/saved" class="text-white">Saved Items</a>
                         <br>
                         <br>
                         <u class="white-text"><b>YEA FOOD!</b></u>

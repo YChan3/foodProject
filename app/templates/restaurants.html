@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Welcome!</title>
+    <title>Restaurants</title>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -54,10 +54,10 @@
                             <font color=white>
                                 <form method="post" action="/restaurants">
                                     Cuisine:<br>
-                                    <input type="text" name="term"><br> Distance (in kilometers):<br>
-                                    <input type="text" name="distance"> Address:
+                                    <input class="res_font" type="text" name="term"><br> Distance (in kilometers):<br>
+                                    <input type="text" class="res_font" name="distance"> Address:
                                     <br>
-                                    <input type="text" name="address" />
+                                    <input class="res_font" type="text" name="address" />
                                     <br>
                                     <input type="submit" name="submit" value="Search" class="w3-btn" style="background-color: #ffcc00; color:#993300;width:150px; height:35px; border-radius: 8px;"/>
                                 </form>
@@ -129,9 +129,9 @@
         <div class="col s4"><img class="STEAMpic" src="static/STEAMS.png"></img>
         </div>
         <div class="col s4">
-            <a href="/logout" class="white-text">Logout &nbsp; &nbsp; &nbsp;</a>
-            <a href="/register" class="white-text">Register &nbsp; &nbsp; &nbsp;</a>
-            <a href="/saved" class="white-text">Saved Items</a>
+            <a href="/logout" class="text-white">Logout &nbsp; &nbsp; &nbsp;</a>
+            <a href="/register" class="text-white">Register &nbsp; &nbsp; &nbsp;</a>
+            <a href="/saved" class="text-white">Saved Items</a>
             <br>
             <br>
             <u class="white-text"><b>YEA FOOD!</b></u>
