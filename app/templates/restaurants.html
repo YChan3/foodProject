@@ -86,11 +86,12 @@
                 <div class="row">
                     {% if logged_in %}
                     <form action="/save" method="POST">
+
                         {%for i in range(0, len)%}
                         <div class="col s4 m4 l4">
                             <p>
                                 <label>
-                                    <input class="checkbox-white" type="checkbox" name="choice{{i}}" value="{{names[i]}}`{{links[i]}}`{{images[i]}}"><span>{{names[i]}}</span>
+                                    <input class="checkbox-white" type="checkbox" name="choice{{i}}" value="{{names[i]}}`{{links[i]}}`{{images[i]}}"><span class="white-text">{{names[i]}}</span>
                                     <br>
                                     <br>
                                     <a href="{{links[i]}}" target="_blank"><img src="{{images[i]}}" class="image-fill" onerror="this.onerror=null;this.src='static/noimage.png';" /></a>
@@ -101,12 +102,13 @@
                             <br>
                         </div>
                         {%endfor%}
-                        <input type="submit" name="submit" value="Save Restaurants(s)">
+                        <br><br>
+                        <div class=" col s12 m12 l12"><input class="w3-btn url" style="background-color: #ffcc00; color:#993300;width:150px; height:35px; border-radius: 8px;" type="submit" name="submit" value="Save Restaurants(s)"> <br>
                         <br>
                         <br>
-                        <br>
-                        <br>
+                        <br></div>
                     </form>
+
                     {% else %} {%for i in range(0, len)%}
                     <h6><div class="yellow-text col s4 m4 l4">
                       {{names[i]}}

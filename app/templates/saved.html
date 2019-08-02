@@ -49,14 +49,14 @@
                         <label class="black-text">
                             <input type="checkbox" name="choice{{i}}" value="{{recipes[i]['recipes']}}`{{recipes[i]['link']}}`{{recipes[i]['image']}}"><span>{{recipes[i]['recipes']}}</span>
                             <br><br>
-                            <a href="{{recipes[i]['link']}}" target="_blank"><img src="{{recipes[i]['image']}}" class="image-fill" /></a>
+                            <a href="{{recipes[i]['link']}}" target="_blank"><img src="{{recipes[i]['image']}}" class="image-fill" onerror="this.onerror=null;this.src='static/noimage.png';"/></a>
                         </label>
                     </p>
                     <br><br><br>
                 </div>
                 {%endfor%}
                 <br><br>
-                <div class=" col s12 m12 l12"> <input type="submit" name="submit" value="Delete Recipe(s)"> </div>
+                <div class=" col s12 m12 l12"> <input type="submit" name="submit" value="Delete Recipe(s)" class="w3-btn" style="background-color: #99ffff; color:#4d4d4d;width:165px; height:35px; border-radius: 8px;"/> </div>
             </form>
             {% endif %}
         </div>
@@ -75,13 +75,13 @@
                             <label class="black-text">
                                 <input type="checkbox" name="choice{{i}}" value="{{restaurants[i]['restaurants']}}`{{restaurants[i]['link']}}`{{restaurants[i]['image']}}"><span>{{restaurants[i]['restaurants']}}</span>
                                 <br><br>
-                                <a href="{{restaurants[i]['link']}}" target="_blank"><img src="{{restaurants[i]['image']}}" class="image-fill" /></a>
+                                <a href="{{restaurants[i]['link']}}" target="_blank"><img onerror="this.onerror=null;this.src='static/noimage.png';" src="{{restaurants[i]['image']}}" class="image-fill" /></a>
                             </label>
                         </p>
-                        <br><br><br>
+                        <br><br>
                     </div>
                 {%endfor%}
-                <div class=" col s12 m12 l12"> <input type="submit" name="submit" value="Delete Restaurant(s)"> </div>
+                <div class=" col s12 m12 l12"> <input type="submit" name="submit" value="Delete Restaurant(s)" class="w3-btn" style="background-color: #99ffff; color:#4d4d4d;width:165px; height:35px; border-radius: 8px;"/>  <br><br><br> </div>
             </form>
             {% endif %}
             <br>

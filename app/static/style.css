@@ -103,6 +103,14 @@ h2{
     font-size: 40px;
 }
 
+.placeholder-dark{
+  font-size: 30px;
+}
+
+.w3-btn{
+  cursor:pointer;
+}
+
 .form{
 background-color: #333F87;;
 padding: 10px;
@@ -119,7 +127,7 @@ margin: 0 auto;
   padding-right: 200px;
 }
 #tweetScreen {
-  width: 60%;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 40px;
@@ -308,6 +316,10 @@ color: yellow;
 }
 .text-white{
 color: white;
+}
+
+.big-label{
+  font-size:100;
 }
 .recipeFont{
   font-size:30;
